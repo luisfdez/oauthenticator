@@ -8,6 +8,6 @@ IFS="
 user=lfernand
 echo "adding user $user"
 useradd -m -s /bin/bash $user
-cp -r /srv/ipython/examples /home/$user/examples
-chown -R $user /home/$user/examples
+#cp -r /srv/ipython/examples /home/$user/examples
+#chown -R $user /home/$user/examples
 #done
