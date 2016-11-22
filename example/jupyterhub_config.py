@@ -24,8 +24,8 @@ c.KubeSpawner.singleuser_image_spec = 'yuvipanda/simple-singleuser:v1'
 # The spawned containers need to be able to talk to the hub through the proxy!
 c.KubeSpawner.hub_connect_ip = os.environ['HUB_CONNECT_IP']
 
-c.KubeSpawner.mem_limit = '100Mi'
-c.KubeSpawner.mem_guarantee='100Mi'
+c.KubeSpawner.mem_limit = '100M'
+c.KubeSpawner.mem_guarantee='100M'
 c.KubeSpawner.cpu_limit = 0.5
 c.KubeSpawner.cpu_guarantee = 0.5
 
