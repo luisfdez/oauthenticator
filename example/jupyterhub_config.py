@@ -11,7 +11,7 @@ c.JupyterHub.spawner_class = 'kubespawner.KubeSpawner'
 c.JupyterHub.ip = '0.0.0.0'
 c.JupyterHub.hub_ip = '0.0.0.0'
 
-c.JupyterHub.port = 9081
+c.JupyterHub.port = 8000
 
 # Don't try to cleanup servers on exit - since in general for k8s, we want
 # the hub to be able to restart without losing user containers
