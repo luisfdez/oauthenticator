@@ -4,7 +4,9 @@ import os
 c = get_config()
 
 c.JupyterHub.log_level = 10
-c.JupyterHub.authenticator_class = 'oauthenticator.openshift.OpenShiftOAuthenticator'
+
+c.JupyterHub.authenticator_class = 'oauthenticator.openshift.LocalOpenShiftOAuthenticator'
+c.LocalOpenShiftOAuthenticator.create_system_users = True
 
 c.JupyterHub.spawner_class = 'kubespawner.KubeSpawner'
 
