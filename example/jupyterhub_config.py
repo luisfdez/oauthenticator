@@ -28,26 +28,11 @@ c.KubeSpawner.hub_connect_ip = os.environ['HUB_CONNECT_IP']
 
 # Don't try to cleanup servers on exit - since in general for k8s, we want
 # the hub to be able to restart without losing user containers
-c.JupyterHub.cleanup_servers = False
+c.JupyterHub.cleanup_servers = os.environ['CLEANUP_SERVERS']
 
 # First pulls can be really slow, so let's give it a big timeout
 c.KubeSpawner.start_timeout = 60 * 5 
-
-# Our simplest user image! Optimized to just... start, and be small!
-c.KubeSpawner.singleuser_image_spec = 'yuvipanda/simple-singleuser:v1'
-
-c.KubeSpawner.accessible_hub_api_url = 'http://172.30.23.15:8000/hub/api'
 c.KubeSpawner.mem_limit = '100M'
 c.KubeSpawner.mem_guarantee='100M'
 c.KubeSpawner.cpu_limit = 0.5
 c.KubeSpawner.cpu_guarantee = 0.5
-
-# Old class names
-#c.JupyterHub.spawner_class = 'kubernetes_spawner.KubernetesSpawner'
-#c.KubernetesSpawner.verify_ssl = False
-#c.KubernetesSpawner.hub_ip_from_service = 'jupyterhub'
-#c.KubernetesSpawner.container_image = 'danielfrg/jupyterhub-kube-ldap-nfs-singleuser:0.1'
-#c.Spawner.default_url = '/lab'
-#c.Spawner.notebook_dir = '/mnt/notebooks/%U'
-#c.KubernetesSpawner.persistent_volume_claim_name = 'jupyterhub-volume'
-#c.KubernetesSpawner.persistent_volume_claim_path = '/mnt'
