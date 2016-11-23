@@ -8,6 +8,11 @@ c.JupyterHub.log_level = 10
 c.JupyterHub.authenticator_class = 'oauthenticator.openshift.LocalOpenShiftOAuthenticator'
 c.LocalOpenShiftOAuthenticator.create_system_users = True
 
+# put the JupyterHub cookie secret and state db
+# in /var/run/jupyterhub
+c.JupyterHub.cookie_secret_file = '/srv/jupyterhub/cookie_secret'
+c.JupyterHub.db_url = '/srv/jupyterhub/jupyterhub.sqlite'
+
 c.JupyterHub.spawner_class = 'kubespawner.KubeSpawner'
 
 c.JupyterHub.ip = '0.0.0.0'
