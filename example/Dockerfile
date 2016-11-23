@@ -7,11 +7,9 @@ FROM jupyterhub/jupyterhub
 MAINTAINER Project Jupyter <ipython-dev@scipy.org>
 
 # Install oauthenticator from git
-RUN python3 -m pip install git+https://github.com/luisfdez/oauthenticator.git
+RUN python3 -m pip install git+https://github.com/luisfdez/oauthenticator.git@feature/openshift-oauth
 
 # Install the Kubernetes Spawner
-#RUN pip install git+https://github.com/danielfrg/jupyterhub-kubernetes_spawner.git
-#Migrated?
 RUN pip install git+https://github.com/jupyterhub/kubespawner.git
 
 # Create oauthenticator directory and put necessary files in it
