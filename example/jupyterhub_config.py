@@ -10,7 +10,7 @@ c.JupyterHub.authenticator_class = 'oauthenticator.openshift.LocalOpenShiftOAuth
 c.LocalOpenShiftOAuthenticator.create_system_users = True
 
 with codecs.open('/var/run/secrets/kubernetes.io/serviceaccount/token', 'r', encoding='utf-8') as secret:
-    c.OpenShiftOAuthenticator.client_id = secret.read()
+    c.OpenShiftOAuthenticator.client_secret = secret.read()
 
 # put the JupyterHub cookie secret and state db
 # in /var/run/jupyterhub
