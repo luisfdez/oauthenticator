@@ -1,5 +1,6 @@
 # Configuration file for Jupyter Hub
 import os
+import codecs
 
 c = get_config()
 
@@ -7,6 +8,9 @@ c.JupyterHub.log_level = 10
 
 c.JupyterHub.authenticator_class = 'oauthenticator.openshift.LocalOpenShiftOAuthenticator'
 c.LocalOpenShiftOAuthenticator.create_system_users = True
+
+with codecs.open('/var/run/secrets/kubernetes.io/serviceaccount/token', 'r', encoding='utf-8') as secret:
+    c.OpenShiftOAuthenticator.client_id = secret.read()
 
 # put the JupyterHub cookie secret and state db
 # in /var/run/jupyterhub
