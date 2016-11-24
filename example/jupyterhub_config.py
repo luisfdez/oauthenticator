@@ -31,7 +31,7 @@ c.KubeSpawner.hub_connect_ip = os.environ["%s_SERVICE_HOST" % os.environ['SERVIC
 
 # Don't try to cleanup servers on exit - since in general for k8s, we want
 # the hub to be able to restart without losing user containers
-c.JupyterHub.cleanup_servers = os.environ['CLEANUP_SERVERS']
+c.JupyterHub.cleanup_servers = os.environ['CLEANUP_SERVERS'] == True
 
 # First pulls can be really slow, so let's give it a big timeout
 c.KubeSpawner.start_timeout = 60 * 5 
