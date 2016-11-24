@@ -23,8 +23,11 @@ c.JupyterHub.ip = '0.0.0.0'
 c.JupyterHub.hub_ip = '0.0.0.0'
 
 c.JupyterHub.port = 8000
-# The spawned containers need to be able to talk to the hub through the proxy!
-c.KubeSpawner.hub_connect_ip = os.environ['HUB_CONNECT_IP']
+
+#
+# OpenShift Hack - The downward API doesn't provide yet information about the service
+#
+c.KubeSpawner.hub_connect_ip = os.environ["%s_SERVICE_HOST" % os.environ['SERVICE_NAME'].upper()]
 
 # Don't try to cleanup servers on exit - since in general for k8s, we want
 # the hub to be able to restart without losing user containers
