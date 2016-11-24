@@ -35,6 +35,8 @@ c.JupyterHub.cleanup_servers = os.environ['CLEANUP_SERVERS'] == True
 
 # First pulls can be really slow, so let's give it a big timeout
 c.KubeSpawner.start_timeout = 60 * 5 
+# Our simplest user image! Optimized to just... start, and be small!
+c.KubeSpawner.singleuser_image_spec = 'yuvipanda/simple-singleuser:v1'
 c.KubeSpawner.mem_limit = '100M'
 c.KubeSpawner.mem_guarantee='100M'
 c.KubeSpawner.cpu_limit = 0.5
